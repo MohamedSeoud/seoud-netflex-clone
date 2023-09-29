@@ -1,6 +1,7 @@
 import Routes from './routes'
 import './App.css';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { AuthContextProvider } from './context/AuthContext';
 
 
 function App() {
@@ -9,9 +10,11 @@ function App() {
 
   return (
     <>
-    <QueryClientProvider client={queryClient}>
-      <Routes/>
-    </QueryClientProvider>
+    <AuthContextProvider>
+      <QueryClientProvider client={queryClient}>
+        <Routes/>
+      </QueryClientProvider>
+    </AuthContextProvider>
     </>
   )
 }

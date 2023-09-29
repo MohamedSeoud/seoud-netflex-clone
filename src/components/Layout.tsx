@@ -1,3 +1,4 @@
+import Footer from './Footer'
 import Navbar from './Navbar'
 import { Outlet } from 'react-router'
 
@@ -6,6 +7,7 @@ function Layout() {
     <div className=' flex flex-col '>
         <Navbar/>
         <Outlet/>
+        <Footer/>
     </div>
   )
 }

@@ -9,8 +9,9 @@ function HomeSlider({url,title,name}:{url:string,title:string,name:string}) {
     
     const fetchData = new Requests<DataModel>();
     const data:ResponseModel<DataModel> = fetchData.get(url,name)
-    const [movie, setMovie] = useState([] as MovieModel[] )
+    const [movie, setMovie] = useState([] as MovieModel[] );
   
+    
 
     useEffect(() => {
         if(!data.isLoading){
@@ -19,6 +20,9 @@ function HomeSlider({url,title,name}:{url:string,title:string,name:string}) {
     
     }, [data.isLoading])
 
+
+
+
   return (
     <div className=" flex text-white w-[100%] h-fit py-16 flex-col gap-y-2 ">
         <div className=" flex w-[100%] text-3xl uppercase justify-start font-semibold items-start md:px-12">
@@ -26,9 +30,16 @@ function HomeSlider({url,title,name}:{url:string,title:string,name:string}) {
 
         </div>
         <Swiper
+          breakpoints={{
+            // when window width is >= 640px
+
+            // when window width is >= 768px
+            300: {
+              width: 768,
+              slidesPerView: 3.4,
+            },
+          }}
         spaceBetween={50}
-        slidesPerView={6}
-        onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
         className="w-[100%]"
         >            

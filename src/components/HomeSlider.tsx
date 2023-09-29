@@ -15,7 +15,7 @@ function HomeSlider({url,title,name}:{url:string,title:string,name:string}) {
 
     useEffect(() => {
         if(!data.isLoading){
-            setMovie(data.data.data.results.slice(0,12))
+            setMovie(data.data.data.results.filter(c=>c.backdrop_path!==null))
         }
     
     }, [data.isLoading])

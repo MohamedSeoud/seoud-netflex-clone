@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Urls } from "../helpers/HttpUrls"
 import { MovieModel } from "../helpers/interface"
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
@@ -5,7 +6,7 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 function SliderComponet({item}:{item:MovieModel}) {
 
-const liked = false
+const [liked,setLiked] = useState(false)
 
 
 
@@ -19,7 +20,8 @@ const liked = false
       <div className=" absolute opacity-0 hover:opacity-100  w-[230px] h-[230px] duration-300
        hover:bg-black/80  cursor-pointer">
         <div className=" w-[100%] h-[100%] flex flex-col  items-center ">
-            <span className={`w-[100%] p-6 h-fit flex ${liked?"text-red-600":"text-white"} justify-start items-start`}>
+            <span className={`w-[100%] p-6 h-fit flex ${liked?"text-red-600":"text-white"} justify-start items-start`}
+            onClick={()=>setLiked(!liked)}>
                 { !liked ?<AiOutlineHeart size='2.5rem'/>
                   : <AiFillHeart size='2.5rem' />
                 }

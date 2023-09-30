@@ -1,6 +1,7 @@
 import { useRoutes } from "react-router-dom";
 import Home from "../pages/Home";
 import Layout from "../components/Layout";
+import Signup from "../pages/Signup";
 
 export default function Routes() {
 
@@ -12,6 +13,10 @@ export default function Routes() {
             {
                 path:'/',
                 element:<Home/>
+            },
+            {
+                path:'/sign-up',
+                element:<Signup/>
             }
         ]
         }
